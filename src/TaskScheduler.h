@@ -1480,6 +1480,12 @@ bool Scheduler::execute() {
     return (idleRun);
 }
 
+Task& ConvTask::getFromShared(std::shared_ptr<Task> sTask) {
+    return *sTask.get();
+}
 
+Task& ConvTask::getFromUnique(std::unique_ptr<Task> uTask) {
+    return *uTask.get();
+}
 
 #endif /* _TASKSCHEDULER_H_ */
