@@ -1480,6 +1480,7 @@ bool Scheduler::execute() {
     return (idleRun);
 }
 
+#ifdef _TASK_STD_MEMORY
 Task& ConvTask::getFromShared(std::shared_ptr<Task> sTask) {
     return *sTask.get();
 }
@@ -1487,5 +1488,6 @@ Task& ConvTask::getFromShared(std::shared_ptr<Task> sTask) {
 Task& ConvTask::getFromUnique(std::unique_ptr<Task> uTask) {
     return *uTask.get();
 }
+#endif  // _TASK_STD_MEMORY
 
 #endif /* _TASKSCHEDULER_H_ */

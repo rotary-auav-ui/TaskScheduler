@@ -3,7 +3,6 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include <memory>
 
 #ifndef _TASKSCHEDULERDECLARATIONS_H_
 #define _TASKSCHEDULERDECLARATIONS_H_
@@ -409,9 +408,12 @@ class Scheduler {
 #endif  // _TASK_TIMECRITICAL
 };
 
+#ifdef _TASK_STD_MEMORY
+#include <memory>
 namespace ConvTask {
     Task& getFromShared(std::shared_ptr<Task> sTask);
     Task& getFromUnique(std::unique_ptr<Task> uTask);
 }
+#endif  // _TASK_STD_MEMORY
 
 #endif /* _TASKSCHEDULERDECLARATIONS_H_ */
